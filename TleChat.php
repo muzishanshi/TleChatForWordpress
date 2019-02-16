@@ -44,7 +44,7 @@ function tle_chat_options(){
 			</p>
 		</form>
 		<?php
-		$json=file_get_contents('https://tongleer.com/api/interface/TleChat.php?action=updateWordpress&version=1&domain='.$_SERVER['SERVER_NAME'].'&token='.$chat_configs["token"]);
+		$json=file_get_contents('https://www.tongleer.com/api/interface/TleChat.php?action=updateWordpress&version=1&domain='.$_SERVER['SERVER_NAME'].'&token='.$chat_configs["token"]);
 		$result=json_decode($json,true);
 		?>
 		版本检查：<?=$result["content"];?>
