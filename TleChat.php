@@ -32,11 +32,7 @@ function tle_chat_wp_footer(){
 		<div style="position:fixed;bottom:0;right:0;">
 			<button id="btnChatroom" class="layui-btn layui-btn-normal">聊天室</button>
 		</div>
-		<script type="text/javascript">
-			if(typeof($("body")!="object"){
-				document.write(\"<script src=https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js></script>\");
-			}
-		</script>
+		<script src=https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js></script>
 		<script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
 		<script>
 		$("#btnChatroom").click(function(){
@@ -91,7 +87,8 @@ function tle_chat_options(){
 		$json=file_get_contents('https://www.tongleer.com/api/interface/TleChat.php?action=updateWordpress&version=2&domain='.$_SERVER['SERVER_NAME']);
 		$result=json_decode($json,true);
 		?>
-		版本检查：<?=$result["content"];?>
+		版本检查：<?=$result["content"];?><br />
+		<small>注：若前台点击午反应，则可能是jquery冲突，只需把插件目录下TleChat.php中tle_chat_wp_footer函数的加载jquery的代码删掉即可。</small>
 		<p>
 			<script src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 			<input type="hidden" id="objectId" value="<?=$config_room["objectId"];?>" />
