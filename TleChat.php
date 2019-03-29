@@ -3,7 +3,7 @@
 Plugin Name: TleChat
 Plugin URI: https://github.com/muzishanshi/TleChatForWordpress
 Description:  站长聊天室插件为站长和用户提供聊天室功能，让站长与用户之间的联系更加友爱，支持文本、长文本、语音聊天、图片传输及站长之间的QQ、微信、支付宝打赏，共同建立一个友爱的联盟。
-Version: 1.0.3
+Version: 1.0.4
 Author: 二呆
 Author URI: http://www.tongleer.com
 License: 
@@ -92,7 +92,7 @@ function tle_chat_options(){
 			<input type="button" id="delRoom" value="删除当前聊天室" />
 			<input type="button" id="createRoom" value="创建新聊天室" />
 			<script>
-				$.post("<?=plugins_url();?>/TleChat/update.php",{version:3},function(data){
+				$.post("<?=plugins_url();?>/TleChat/update.php",{version:4},function(data){
 					var data=JSON.parse(data);
 					$("#versionCode").html(data.content);
 					$("#chatUrl").html('<iframe src="'+decodeURIComponent(data.url)+'" width="100%" height="700" scrolling = "no"></iframe>');

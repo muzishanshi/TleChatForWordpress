@@ -638,7 +638,7 @@ $rowUser = $wpdb->get_row( "SELECT * FROM `" . $wpdb->prefix . "users` where ID=
 	}
 
 	function createImage(url) {
-	  return '<img alt="" src="' + encodeHTML(url) + '" />';
+	  return '<img alt="" src="' + encodeHTML(url) + '" width="100%" />';
 	}
 
 	function createAudio(url) {
