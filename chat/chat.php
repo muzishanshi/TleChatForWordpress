@@ -751,7 +751,12 @@ $rowUser = $wpdb->get_row( "SELECT * FROM `" . $wpdb->prefix . "users` where ID=
 		var xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = function () {
 			if (xhr.readyState == 4 && xhr.status == 200) {
-				sendMsgAsAudio(xhr.responseText);
+				var data=JSON.parse(xhr.responseText);
+				if(data.status=="upload success"){
+					sendMsgAsAudio(data.mp3url);
+				}else{
+					alert(data.msg);
+				}
 			}
 		};
 		xhr.open('POST', 'upload.php',true);
