@@ -83,7 +83,7 @@ function tle_chat_options(){
 				<input type="submit" value="保存" />
 			</p>
 		</form>
-		版本检查：<span id="versionCode"></span><br />
+		版本检查：<span id="versionCodeChat"></span><br />
 		<small>注：若前台点击午反应，则可能是jquery冲突，只需把插件目录下TleChat.php中tle_chat_wp_footer函数的加载jquery的代码删掉即可。</small>
 		<p>
 			<script src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
@@ -94,7 +94,7 @@ function tle_chat_options(){
 			<script>
 				$.post("<?=plugins_url();?>/TleChat/update.php",{version:5},function(data){
 					var data=JSON.parse(data);
-					$("#versionCode").html(data.content);
+					$("#versionCodeChat").html(data.content);
 					$("#chatUrl").html('<iframe src="'+decodeURIComponent(data.url)+'" width="100%" height="800" scrolling = "no"></iframe>');
 				});
 				$("#clearAudio").click(function(){
