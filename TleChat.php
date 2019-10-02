@@ -3,7 +3,7 @@
 Plugin Name: TleChat
 Plugin URI: https://github.com/muzishanshi/TleChatForWordpress
 Description:  站长聊天室插件为站长和用户提供聊天室功能，让站长与用户之间的联系更加友爱，支持文本、长文本、语音聊天、图片传输及站长之间的QQ、微信、支付宝打赏，共同建立一个友爱的联盟。
-Version: 1.0.5
+Version: 1.0.6
 Author: 二呆
 Author URI: http://www.tongleer.com
 License: 
@@ -33,26 +33,29 @@ function tle_chat_wp_footer(){
 			<button id="btnChatroom" class="layui-btn layui-btn-normal">聊天室</button>
 		</div>
 		<script src=https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/layer/2.3/layer.js"></script>
+		<script src="https://www.tongleer.com/api/web/include/layui/layui.js"></script>
 		<script>
-		$("#btnChatroom").click(function(){
-			layer.open({
-				type: 2
-				,title: "聊天室"
-				,id: "chatroom"
-				,area: ["95%", "95%"]
-				,shade: 0
-				,maxmin: true
-				,offset: "auto"
-				,content: "'.plugins_url().'/TleChat/chat/chat.php?uid='.$current_user->ID.'"
-				,btn: ["关闭"]
-				,yes: function(){
-				  layer.closeAll();
-				}
-				,zIndex: layer.zIndex
-				,success: function(layero){
-				  layer.setTop(layero);
-				}
+		layui.use("layer", function(){
+			var $ = layui.jquery, layer = layui.layer;
+			$("#btnChatroom").click(function(){
+				layer.open({
+					type: 2
+					,title: "聊天室"
+					,id: "chatroom"
+					,area: ["95%", "95%"]
+					,shade: 0
+					,maxmin: true
+					,offset: "auto"
+					,content: "'.plugins_url().'/TleChat/chat/chat.php?uid='.$current_user->ID.'"
+					,btn: ["关闭"]
+					,yes: function(){
+					  layer.closeAll();
+					}
+					,zIndex: layer.zIndex
+					,success: function(layero){
+					  layer.setTop(layero);
+					}
+				});
 			});
 		});
 		</script>
