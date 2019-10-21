@@ -10,7 +10,7 @@ License:
 */
 if(isset($_GET['t'])){
     if($_GET['t'] == 'config'){
-        update_option('tle_chat', array('appId' => $_REQUEST['appId'], 'appKey' => $_REQUEST['appKey'], 'notice' => $_REQUEST['notice']));
+        update_option('tle_chat', array('isEnableJQuery' => $_REQUEST['isEnableJQuery'], 'appId' => $_REQUEST['appId'], 'appKey' => $_REQUEST['appKey'], 'notice' => $_REQUEST['notice']));
     }
 }
 
@@ -28,11 +28,17 @@ function tle_chat_wp_head(){
 add_action('wp_footer', 'tle_chat_wp_footer');
 function tle_chat_wp_footer(){
 	global $current_user;
+	$chat_configs = get_settings('tle_chat');
+	if(@$chat_configs['isEnableJQuery']=="y"){
+		$jquerysrc='<script src=https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js></script>';
+	}else{
+		$jquerysrc='';
+	}
 	echo '
 		<div style="position:fixed;bottom:0;right:0;">
 			<button id="btnChatroom" class="layui-btn layui-btn-normal">聊天室</button>
 		</div>
-		<script src=https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js></script>
+		'.$jquerysrc.'
 		<script src="https://www.tongleer.com/api/web/include/layui/layui.js"></script>
 		<script>
 		layui.use("layer", function(){
@@ -72,6 +78,11 @@ function tle_chat_options(){
 		作者：<a href="http://www.tongleer.com" target="_blank" title="">二呆</a><br />
 		<form method="get" action="">
 			<p>
+				前台是否加载jquery：
+				<input type="radio" name="isEnableJQuery" value="n" <?=isset($chat_configs['isEnableJQuery'])?($chat_configs['isEnableJQuery']=="n"?"checked":""):"";?> />否
+				<input type="radio" name="isEnableJQuery" value="y" <?=isset($chat_configs['isEnableJQuery'])?($chat_configs['isEnableJQuery']!="n"?"checked":""):"checked";?> />是
+			</p>
+			<p>
 				前台聊天室配置<a href="https://leancloud.cn/" target="_blank">leancloud</a>的appId<br /><input type="text" name="appId" value="<?=$chat_configs["appId"]==""?"":$chat_configs["appId"];?>" placeholder="leancloud的appId" size="50" />
 			</p>
 			<p>
@@ -86,8 +97,7 @@ function tle_chat_options(){
 				<input type="submit" value="保存" />
 			</p>
 		</form>
-		版本检查：<span id="versionCodeChat"></span><br />
-		<small>注：若前台点击午反应，则可能是jquery冲突，只需把插件目录下TleChat.php中tle_chat_wp_footer函数的加载jquery的代码删掉即可。</small>
+		版本检查：<span id="versionCodeChat"></span>
 		<p>
 			<script src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 			<input type="hidden" id="objectId" value="<?=$config_room["objectId"];?>" />
