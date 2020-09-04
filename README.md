@@ -4,7 +4,7 @@
 站长聊天室插件为站长和用户提供聊天室功能，让站长与用户之间的联系更加友爱，支持文本、长文本、语音聊天、图片传输及站长之间的QQ、微信、支付宝打赏，共同建立一个友爱的联盟。
 
 #### 插件截图：
-<img src="https://ws3.sinaimg.cn/large/005V7SQ5gy1g19e6qzxzyj30zm0hadif.jpg" />
+<img src="https://ae01.alicdn.com/kf/H46302702289f4fdbabf5a513bff9f1bdB.png" />
 
 #### 使用方法：
 第一步：下载本插件，放在 `wp-content/plugins/` 目录中（插件文件夹名必须为TleChat）；
@@ -19,8 +19,6 @@
 作者：二呆
 
 网站：http://www.tongleer.com/
-
-1元入群：http://joke.tongleer.com/331.html
 
 Typecho版本的聊天室Github：https://github.com/muzishanshi/TleChatForTypecho
 
