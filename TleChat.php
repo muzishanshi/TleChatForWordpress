@@ -97,7 +97,7 @@ function tle_chat_options(){
 				<input type="submit" value="保存" />
 			</p>
 		</form>
-		版本检查：<span id="versionCodeChat"></span>
+		版本检查（此WordPress聊天室插件暂无环信即时聊天版本，敬请期待。）：<span id="versionCodeChat"></span>
 		<p>
 			<script src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 			<input type="hidden" id="objectId" value="<?=$config_room["objectId"];?>" />
