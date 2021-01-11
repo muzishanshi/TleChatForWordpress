@@ -97,7 +97,7 @@ function tle_chat_options(){
 				<input type="submit" value="保存" />
 			</p>
 		</form>
-		版本检查（此WordPress聊天室插件暂无环信即时聊天版本，敬请期待。）：<span id="versionCodeChat"></span>
+		版本检查：<span id="versionCodeChat"></span>
 		<p>
 			<script src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 			<input type="hidden" id="objectId" value="<?=$config_room["objectId"];?>" />
@@ -108,7 +108,7 @@ function tle_chat_options(){
 				$.post("<?=plugins_url();?>/TleChat/update.php",{version:5},function(data){
 					var data=JSON.parse(data);
 					$("#versionCodeChat").html(data.content);
-					$("#chatUrl").html('<iframe src="'+decodeURIComponent(data.url)+'" width="100%" height="800" scrolling = "no"></iframe>');
+					$("#chatUrl").html('<a href="https://www.tongleer.com" target = "_blank">站长聊天室</a>&nbsp;|&nbsp;<a href="'+decodeURIComponent(data.url)+'" target = "_blank">站长直播间</a>');
 				});
 				$("#clearAudio").click(function(){
 					$.post("<?=plugins_url();?>/TleChat/chat/clearAudio.php",{action:"clearAudio"},function(data){
