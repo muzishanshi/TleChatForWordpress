@@ -8,7 +8,7 @@ date_default_timezone_set("Etc/GMT-8");
 
 $chat_configs = get_settings('tle_chat');
 
-if(!isset($chat_configs["appId"])||!isset($chat_configs["MasterKey"])){echo('有未填写参数');exit;}
+if(empty($chat_configs["appId"])||empty($chat_configs["MasterKey"])){echo('有未填写参数');exit;}
 $action = isset($_POST['action']) ? addslashes($_POST['action']) : '';
 if($action=="createRoom"){
 	$uid = isset($_POST['uid']) ? addslashes($_POST['uid']) : '';
