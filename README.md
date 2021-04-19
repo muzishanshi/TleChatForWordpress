@@ -16,10 +16,13 @@
 
 第四步：完成。
 
+#### 备注：
+需要leancloud平台中使用国内版本，和成功绑定API访问域名和文件访问域名，才能再插件后台创建聊天室成功。
+
 #### 与我联系：
 作者：二呆
 
-网站：http://www.tongleer.com/
+网站：https://www.tongleer.com/
 
 Typecho版本的聊天室Github：https://github.com/muzishanshi/TleChatForTypecho
 

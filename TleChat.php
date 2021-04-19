@@ -10,7 +10,7 @@ License:
 */
 if(isset($_GET['t'])){
     if($_GET['t'] == 'config'){
-        update_option('tle_chat', array('isEnableJQuery' => $_REQUEST['isEnableJQuery'], 'appId' => $_REQUEST['appId'], 'appKey' => $_REQUEST['appKey'], 'notice' => $_REQUEST['notice']));
+        update_option('tle_chat', array('isEnableJQuery' => $_REQUEST['isEnableJQuery'], 'appId' => $_REQUEST['appId'], 'appKey' => $_REQUEST['appKey'], 'MasterKey' => $_REQUEST['MasterKey'], 'notice' => $_REQUEST['notice']));
     }
 }
 
@@ -87,6 +87,9 @@ function tle_chat_options(){
 			</p>
 			<p>
 				前台聊天室配置<a href="https://leancloud.cn/" target="_blank">leancloud</a>的appKey<br /><input type="text" name="appKey" value="<?=$chat_configs["appKey"]==""?"":$chat_configs["appKey"];?>" placeholder="leancloud的appKey" size="50" />
+			</p>
+			<p>
+				前台聊天室配置<a href="https://leancloud.cn/" target="_blank">leancloud</a>的MasterKey<br /><input type="text" name="MasterKey" value="<?=$chat_configs["MasterKey"]==""?"":$chat_configs["MasterKey"];?>" placeholder="leancloud的MasterKey" size="50" />
 			</p>
 			<p>
 				前台显示的公告<br /><input type="text" name="notice" value="<?=$chat_configs["notice"]==""?"":$chat_configs["notice"];?>" placeholder="输入前台显示的公告" size="50" />
